@@ -47,21 +47,19 @@ class Owner
    mooder(:dogs,"happy")
   end
   
-   def play_with_cats
-    @pets[:cats].map { |cat| cat.mood = "happy"}
+  def play_with_cats
+    mooder(:cats,"happy")
   end
   
-   def feed_fish
-    @pets[:fishes].map { |fish| fish.mood = "happy"}
+  def feed_fish
+    mooder(:fishes,"happy")
   end
   
   def sell_pets
-   @pets.each do |type, pets|
-     @pets[type].map { |pet| pet.mood = "nervous"}
-   end
-   @pets.each do |type, pets|
+    [:dogs, :cats, :fishes].each { |pet| mooder(pet,"nervous") }
+    @pets.each do |type, pets|
      @pets[type] = []
-   end
+    end
   end
   
   def list_pets
