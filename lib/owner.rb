@@ -42,9 +42,9 @@ class Owner
   def buy_dog(name)
     @pets[:dogs] << Dog.new(name)
   end
-  
+
   def walk_dogs
-    @pets[:dogs].map { |dog| dog.mood = "happy"}
+   mooder(:dogs,"happy")
   end
   
    def play_with_cats
@@ -68,6 +68,10 @@ class Owner
     "I have #{@pets[:fishes].count} fish, #{@pets[:dogs].count} dog(s), and #{@pets[:cats].count} cat(s)."
   end
   
+  private 
+  def mooder(pet, mood)
+    @pets[pet].map { |cat| cat.mood = mood}
+  end
 end
 
 
